@@ -1060,10 +1060,11 @@ function splitManifesto(){
   mfWords = [...el.querySelectorAll('.mw')];
 }
 
-// niches list with a preview that follows the cursor
+// niches list with a preview that follows the cursor; rows open niche service pages
+const NICHE_PAGE = { roofing:'construction', salon:'beauty', restaurant:'restaurants', coffee:'coffee', dental:'clinics' };
 function renderNiches(){
   $('#nlist').innerHTML = T[lang]['n.items'].map(([name, desc, id], i) => `
-    <a class="nrow rv" href="cases/${id}/" data-img="assets/work-${id}.jpg"><span class="ni">0${i + 1}</span><h3>${name}</h3><p>${desc}</p></a>`).join('');
+    <a class="nrow rv" href="services/${NICHE_PAGE[id]}/" data-img="assets/work-${id}.jpg"><span class="ni">0${i + 1}</span><h3>${name}</h3><p>${desc}</p></a>`).join('');
   $$('#nlist .rv').forEach(el => { el.classList.add('in'); });
 }
 
@@ -1213,7 +1214,7 @@ document.addEventListener('click', e => {
 // page transition to demo sites
 const curtain = $('#curtain');
 document.addEventListener('click', e => {
-  const a = e.target.closest('a.work');
+  const a = e.target.closest('a.work, a.nrow, a.jpost');
   if (!a || e.ctrlKey || e.metaKey || e.shiftKey || reduced) return;
   e.preventDefault();
   curtain.classList.add('go');

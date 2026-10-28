@@ -120,6 +120,26 @@ h1 em,h2 em{font-style:italic;color:var(--gold)}
 .fonts small{color:var(--muted);font-size:14px}
 .note{font-size:14px;color:var(--muted);border-left:1px solid var(--gold);padding-left:18px;margin-top:40px}
 
+/* niche service pages */
+.svc-head{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.svc-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.svc-shot{display:block;border:1px solid var(--line);border-radius:14px 14px 0 0;background:var(--ink3);padding:0 12px;transform:perspective(1400px) rotateY(-10deg) rotateX(4deg);transition:transform 1s var(--ease),border-color .5s;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.svc-shot:hover{transform:none;border-color:var(--gold)}
+.svc-shot .dbar{display:flex;gap:7px;padding:13px 2px;align-items:center}
+.svc-shot .dbar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.svc-shot .dbar span{margin-left:12px;font-size:12px;color:var(--muted)}
+.svc-shot .screen{height:440px;overflow:hidden;background:#fff;border-radius:4px 4px 0 0}
+.svc-shot img{--ph:440px;width:100%;display:block;animation:pan2 18s cubic-bezier(.45,0,.55,1) 1s infinite alternate}
+@keyframes pan2{to{transform:translateY(calc(-100% + var(--ph)))}}
+.pains{display:grid;gap:14px}
+.pain{border:1px solid var(--line);padding:24px 26px;font-size:17px;display:flex;gap:20px;align-items:baseline}
+.pain b{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:22px;font-weight:500}
+.blocks{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.blk{border:1px solid var(--line);padding:22px 24px;font-size:16px;display:flex;gap:14px;align-items:center;transition:border-color .4s,background .4s}
+.blk:hover{border-color:var(--gold);background:var(--ink2)}
+.blk i{font-style:normal;color:var(--gold);font-size:12px}
+@media(max-width:900px){.svc-head{grid-template-columns:1fr;gap:40px}.svc-shot{transform:none}.svc-shot .screen{height:320px}.svc-shot img{--ph:320px}.blocks{grid-template-columns:1fr}}
+
 footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(--muted);margin-top:60px}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
