@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Страница не найдена — Predstav Studio</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/predstav-studio/favicon.svg" type="image/svg+xml">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark';var l=localStorage.getItem('lang');document.documentElement.lang=l||(navigator.language.indexOf('ru')===0?'ru':'en')}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/predstav-studio/assets/sub.css">
+<style>
+.nf{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 20px;position:relative;overflow:hidden}
+.nf .big{font-family:var(--serif);font-style:italic;font-size:clamp(160px,34vw,420px);line-height:.8;color:var(--gold);position:relative}
+.nf .big span{display:inline-block;animation:float 6s ease-in-out infinite}
+.nf .big span:nth-child(2){animation-delay:-2s}.nf .big span:nth-child(3){animation-delay:-4s}
+@keyframes float{50%{transform:translateY(-18px)}}
+.nf h1{font-size:clamp(34px,5vw,60px);margin:30px 0 14px}
+.nf p{color:var(--muted);max-width:440px;margin:0 auto 36px}
+.nf .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.ring{position:absolute;width:700px;height:700px;border:1px solid var(--line);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
+.ring+.ring{width:1000px;height:1000px}
+</style>
+</head>
+<body>
+<main class="nf">
+  <div class="ring"></div><div class="ring"></div>
+  <div class="big"><span>4</span><span>0</span><span>4</span></div>
+  <h1><span data-l="ru">Такой страницы <em>нет</em></span><span data-l="en">This page doesn't <em>exist</em></span></h1>
+  <p><span data-l="ru">Возможно, ссылка устарела или в адресе опечатка. Зато у нас есть сайты, которые работают.</span><span data-l="en">The link may be outdated or mistyped. But we do have websites that work.</span></p>
+  <div class="row">
+    <a class="btn solid" href="/predstav-studio/"><span data-l="ru">На главную</span><span data-l="en">Back to home</span></a>
+    <a class="btn" href="/predstav-studio/#work"><span data-l="ru">Смотреть работы</span><span data-l="en">See our work</span></a>
+  </div>
+</main>
+</body>
+</html>
