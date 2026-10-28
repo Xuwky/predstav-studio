@@ -156,8 +156,39 @@ h2 em{font-style:italic;color:var(--gold)}
 
 /* contact */
 .contact{text-align:center;padding:180px 0}
-.contact h2{font-size:clamp(56px,11vw,170px);margin:20px 0 50px}
-.contact .btn{padding:24px 46px}
+.contact h2{font-size:clamp(56px,11vw,170px);margin:20px 0 70px}
+.cgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;text-align:left;align-items:start}
+.lead-form{display:grid;gap:22px}
+.lead-form label span{display:block;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.lead-form input,.lead-form select,.lead-form textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ivory);font:inherit;font-size:17px;padding:10px 0;outline:none;transition:border-color .4s;resize:vertical}
+.lead-form select option{background:var(--ink)}
+.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--gold)}
+.fbtns{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+.fbtns .btn{cursor:pointer;font-family:var(--sans);background-color:transparent}
+.fbtns .btn.solid{background:var(--gold)}
+.clinks{display:grid;gap:14px}
+.clink{display:flex;align-items:center;gap:20px;padding:22px 24px;border:1px solid var(--line);transition:border-color .4s,transform .5s var(--ease),background .4s}
+.clink:hover{border-color:var(--gold);transform:translateX(8px);background:var(--ink2)}
+.clink small{display:block;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+.clink b{font-family:var(--serif);font-weight:500;font-size:24px}
+.ic{width:46px;height:46px;flex-shrink:0;border-radius:50%;border:1px solid var(--gold);background-color:var(--gold);
+  -webkit-mask:var(--m) center/22px no-repeat;mask:var(--m) center/22px no-repeat}
+.clink .ic{background:none;-webkit-mask:none;mask:none;position:relative}
+.clink .ic:after{content:"";position:absolute;inset:0;background:var(--gold);-webkit-mask:var(--m) center/22px no-repeat;mask:var(--m) center/22px no-repeat}
+.ic-tg{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linejoin='round'%3E%3Cpath d='M21.5 3.5 2.8 10.7c-.9.4-.9 1.6 0 1.9l4.7 1.5 1.8 5.6c.2.7 1.1.9 1.6.4l2.7-2.5 4.7 3.5c.6.4 1.4.1 1.6-.6L23 4.9c.2-1-.6-1.7-1.5-1.4zM7.5 14.1l10.7-7.5-8.4 8.6'/%3E%3C/svg%3E")}
+.ic-wa{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linejoin='round'%3E%3Cpath d='M3 21l1.6-4.7A9 9 0 1 1 8 19.6L3 21z'/%3E%3Cpath d='M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2L9 8.5z'/%3E%3C/svg%3E")}
+.ic-phone{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linejoin='round'%3E%3Cpath d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z'/%3E%3C/svg%3E")}
+.ic-mail{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linejoin='round'%3E%3Crect x='2.5' y='4.5' width='19' height='15' rx='1.5'/%3E%3Cpath d='m3 6 9 7 9-7'/%3E%3C/svg%3E")}
+.float{position:fixed;right:22px;bottom:22px;z-index:60;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s var(--ease)}
+.loaded .float{opacity:1;transform:none}
+.fl{width:56px;height:56px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.4);transition:transform .4s var(--ease)}
+.fl:hover{transform:scale(1.1)}
+.fl .ic{width:56px;height:56px;border:0;background:var(--ink)}
+.fl[data-c="wa"]:before{content:"";position:absolute;width:56px;height:56px;border-radius:50%;border:1px solid var(--gold);animation:ring 2.4s var(--ease) infinite}
+@keyframes ring{from{transform:scale(1);opacity:.8}to{transform:scale(1.7);opacity:0}}
+.off{display:none!important}
+.fl{position:relative}
+@media(max-width:900px){.cgrid{grid-template-columns:1fr}.float{right:16px;bottom:16px}}
 footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(--muted)}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
@@ -286,15 +317,45 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <div class="wrap">
     <div class="eyebrow rv" style="justify-content:center" data-i18n="c.eyebrow"></div>
     <h2 class="rv d1" data-i18n="c.title"></h2>
-    <a class="btn solid magnet rv d2" id="mail" href="#contact" data-i18n="c.btn"></a>
+    <div class="cgrid">
+      <form class="lead-form rv d2" id="leadForm">
+        <label><span data-i18n="f.name"></span><input name="name" required></label>
+        <label><span data-i18n="f.contact"></span><input name="contact" required></label>
+        <label><span data-i18n="f.type"></span>
+          <select name="type" id="ftype"></select>
+        </label>
+        <label><span data-i18n="f.msg"></span><textarea name="msg" rows="3"></textarea></label>
+        <div class="fbtns">
+          <button class="btn solid magnet" type="submit" data-via="wa" data-i18n="f.wa"></button>
+          <button class="btn" type="submit" data-via="mail" data-i18n="f.mail"></button>
+        </div>
+      </form>
+      <div class="clinks rv d3">
+        <a class="clink" data-c="tg" target="_blank" rel="noopener"><i class="ic ic-tg"></i><span><small>Telegram</small><b data-v="tg"></b></span></a>
+        <a class="clink" data-c="wa" target="_blank" rel="noopener"><i class="ic ic-wa"></i><span><small>WhatsApp</small><b data-v="wa"></b></span></a>
+        <a class="clink" data-c="phone"><i class="ic ic-phone"></i><span><small data-i18n="c.phone"></small><b data-v="phone"></b></span></a>
+        <a class="clink" data-c="email"><i class="ic ic-mail"></i><span><small>Email</small><b data-v="email"></b></span></a>
+      </div>
+    </div>
   </div>
 </section>
+
+<div class="float">
+  <a class="fl" data-c="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ic ic-wa"></i></a>
+  <a class="fl" data-c="tg" target="_blank" rel="noopener" aria-label="Telegram"><i class="ic ic-tg"></i></a>
+</div>
 
 <footer><div class="wrap"><span>© 2026 Predstav Studio</span><span data-i18n="foot"></span></div></footer>
 
 <script>
-// CONTACT_EMAIL: почта для заявок, нужна от владельца сайта
-const CONTACT_EMAIL = '';
+// Контакты владельца: впиши свои. Пустое поле = кнопка скрыта.
+// tg — ник без @, wa и phone — номер в международном формате (+7..., +1...)
+const CONTACTS = {
+  tg: '',
+  wa: '',
+  phone: '',
+  email: ''
+};
 
 const T = {
   ru: {
@@ -320,7 +381,11 @@ const T = {
     's1.t':'Знакомство','s1.d':'Вы рассказываете о бизнесе и присылаете логотип и фото. Нет логотипа — сделаем.',
     's2.t':'Дизайн','s2.d':'Через 2–3 дня показываем рабочую версию и вносим ваши правки.',
     's3.t':'Запуск','s3.d':'Подключаем домен и публикуем. Клиенты находят вас в тот же день.',
-    'c.eyebrow':'Новый проект','c.title':'Обсудим <em>ваш</em> сайт?','c.btn':'Написать нам',
+    'c.eyebrow':'Новый проект','c.title':'Обсудим <em>ваш</em> сайт?','c.phone':'Телефон',
+    'f.name':'Ваше имя','f.contact':'Телефон или Telegram','f.type':'Что нужно','f.msg':'Пара слов о проекте',
+    'f.wa':'Отправить в WhatsApp','f.mail':'Отправить на почту',
+    'f.types':['Лендинг','Сайт для бизнеса','Интернет-магазин','Редизайн сайта','Пока не знаю'],
+    'f.hello':'Здравствуйте! Заявка с сайта Predstav Studio','f.l.name':'Имя','f.l.contact':'Контакт','f.l.type':'Нужно','f.l.msg':'Комментарий',
     'foot':'Сайты для бизнеса под ключ'
   },
   en: {
@@ -346,7 +411,11 @@ const T = {
     's1.t':'Discovery','s1.d':'Tell us about your business and send your logo and photos. No logo? We will make one.',
     's2.t':'Design','s2.d':'In 2–3 days you see a working preview and request any changes.',
     's3.t':'Launch','s3.d':'We connect your domain and go live. Customers find you the same day.',
-    'c.eyebrow':'New project','c.title':'Let\'s build <em>your</em> site.','c.btn':'Get in touch',
+    'c.eyebrow':'New project','c.title':'Let\'s build <em>your</em> site.','c.phone':'Phone',
+    'f.name':'Your name','f.contact':'Phone or email','f.type':'What you need','f.msg':'A few words about the project',
+    'f.wa':'Send via WhatsApp','f.mail':'Send by email',
+    'f.types':['Landing page','Business website','Online store','Website redesign','Not sure yet'],
+    'f.hello':'Hi! New request from the Predstav Studio website','f.l.name':'Name','f.l.contact':'Contact','f.l.type':'Need','f.l.msg':'Message',
     'foot':'Websites for small businesses'
   }
 };
@@ -368,11 +437,48 @@ function apply(lang){
   const sw = document.getElementById('lang');
   sw.classList.toggle('en', lang === 'en');
   sw.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.l === lang));
-  if (CONTACT_EMAIL) document.getElementById('mail').href = 'mailto:' + CONTACT_EMAIL;
+  document.getElementById('ftype').innerHTML = d['f.types'].map(x => '<option>' + x + '</option>').join('');
   const hrs = document.getElementById('hrs');
   hrs.dataset.suffix = lang === 'ru' ? 'ч' : 'h';
   if (hrs.textContent !== '0') hrs.textContent = hrs.dataset.count + hrs.dataset.suffix;
 }
+
+// contact links
+const digits = s => s.replace(/[^\d]/g, '');
+const HREF = {
+  tg: v => 'https://t.me/' + v.replace(/^@/, ''),
+  wa: v => 'https://wa.me/' + digits(v),
+  phone: v => 'tel:+' + digits(v),
+  email: v => 'mailto:' + v
+};
+const SHOW = { tg: v => '@' + v.replace(/^@/, ''), wa: v => v, phone: v => v, email: v => v };
+document.querySelectorAll('[data-c]').forEach(el => {
+  const k = el.dataset.c, v = CONTACTS[k];
+  if (!v) { el.classList.add('off'); return; }
+  el.href = HREF[k](v);
+  const b = el.querySelector('[data-v]');
+  if (b) b.textContent = SHOW[k](v);
+});
+
+// lead form → WhatsApp or email with the request filled in
+const form = document.getElementById('leadForm');
+let via = 'wa';
+form.querySelectorAll('[data-via]').forEach(b => {
+  if (!CONTACTS[b.dataset.via === 'wa' ? 'wa' : 'email']) b.classList.add('off');
+  b.addEventListener('click', () => { via = b.dataset.via; });
+});
+if (!CONTACTS.wa && !CONTACTS.email) form.classList.add('off');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const d = T[lang], f = new FormData(form);
+  const text = [d['f.hello'], '',
+    d['f.l.name'] + ': ' + f.get('name'),
+    d['f.l.contact'] + ': ' + f.get('contact'),
+    d['f.l.type'] + ': ' + f.get('type'),
+    f.get('msg') ? d['f.l.msg'] + ': ' + f.get('msg') : ''].join('\n').trim();
+  if (via === 'wa') window.open('https://wa.me/' + digits(CONTACTS.wa) + '?text=' + encodeURIComponent(text), '_blank');
+  else location.href = 'mailto:' + CONTACTS.email + '?subject=' + encodeURIComponent('Predstav Studio') + '&body=' + encodeURIComponent(text);
+});
 
 let lang = store.get() || (navigator.language.startsWith('ru') ? 'ru' : 'en');
 apply(lang);
