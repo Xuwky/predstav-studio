@@ -93,7 +93,17 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px
 .menu-open .mmenu a{opacity:1;transform:none}
 .menu-open .mmenu a:nth-child(2){transition-delay:.06s}.menu-open .mmenu a:nth-child(3){transition-delay:.12s}
 .menu-open .mmenu a:nth-child(4){transition-delay:.18s}.menu-open .mmenu a:nth-child(5){transition-delay:.24s}
-.menu-open .mmenu a:nth-child(6){transition-delay:.3s}
+.menu-open .mmenu a:nth-child(6){transition-delay:.3s}.menu-open .mmenu a:nth-child(7){transition-delay:.36s}
+
+/* journal teaser */
+.journal{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.jpost{display:flex;flex-direction:column;justify-content:space-between;min-height:300px;border:1px solid var(--line);padding:34px;transition:border-color .5s,background .5s,transform .6s var(--ease)}
+.jpost:hover{border-color:var(--gold);background:var(--ink2);transform:translateY(-6px)}
+.jpost small{font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+.jpost h3{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.15;margin:18px 0}
+.jpost .arrow{align-self:flex-end}
+.jpost:hover .arrow{transform:rotate(-45deg);background:var(--gold);border-color:var(--gold);color:var(--on-gold)}
+@media(max-width:900px){.journal{grid-template-columns:1fr}.jpost{min-height:0}}
 .mmenu .mc{margin-top:40px;color:var(--muted);font-size:15px;display:flex;gap:24px;flex-wrap:wrap}
 
 /* i18n swap */
@@ -376,6 +386,7 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
       <a href="#pricing" data-i18n="nav.pricing"></a>
       <a href="#calc" data-i18n="nav.calc"></a>
       <a href="#faq" data-i18n="nav.faq"></a>
+      <a href="blog/" data-i18n="nav.blog"></a>
       <a href="#contact" data-i18n="nav.contact"></a>
     </div>
     <div class="nav-r">
@@ -392,7 +403,8 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
   <a href="#pricing"><em>03</em><span data-i18n="nav.pricing"></span></a>
   <a href="#calc"><em>04</em><span data-i18n="nav.calc"></span></a>
   <a href="#faq"><em>05</em><span data-i18n="nav.faq"></span></a>
-  <a href="#contact"><em>06</em><span data-i18n="nav.contact"></span></a>
+  <a href="blog/"><em>06</em><span data-i18n="nav.blog"></span></a>
+  <a href="#contact"><em>07</em><span data-i18n="nav.contact"></span></a>
   <div class="mc"><a data-c="tg" target="_blank" rel="noopener" style="font:inherit;opacity:1;transform:none">Telegram</a><a data-c="wa" target="_blank" rel="noopener" style="font:inherit;opacity:1;transform:none">WhatsApp</a></div>
 </div>
 
@@ -522,10 +534,24 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
   </div>
 </section>
 
+<section id="journal" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div class="rv"><span class="num">06</span><h2 data-i18n="j.title"></h2></div>
+      <a class="btn rv d1" href="blog/" data-i18n="j.all"></a>
+    </div>
+    <div class="journal">
+      <a class="jpost rv" href="blog/website-cost-2026/"><div><small data-i18n="j.tag"></small><h3 data-i18n="j.1"></h3></div><span class="arrow">→</span></a>
+      <a class="jpost rv d1" href="blog/landing-vs-website/"><div><small data-i18n="j.tag"></small><h3 data-i18n="j.2"></h3></div><span class="arrow">→</span></a>
+      <a class="jpost rv d2" href="blog/website-mistakes/"><div><small data-i18n="j.tag"></small><h3 data-i18n="j.3"></h3></div><span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
 <section id="faq" style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <div class="rv"><span class="num">06</span><h2 data-i18n="faq.title"></h2></div>
+      <div class="rv"><span class="num">07</span><h2 data-i18n="faq.title"></h2></div>
       <p class="rv d1" data-i18n="faq.sub"></p>
     </div>
     <div class="faq rv" id="faqList"></div>
@@ -579,11 +605,11 @@ const CONTACTS = {
 const YM_ID = '';
 
 const WORKS = [
-  { id:'roofing', url:'demos/roofing/', big:true },
-  { id:'coffee', url:'demos/coffee/' },
-  { id:'salon', url:'demos/salon/' },
-  { id:'restaurant', url:'demos/restaurant/' },
-  { id:'dental', url:'demos/dental/' }
+  { id:'roofing', url:'cases/roofing/', big:true },
+  { id:'coffee', url:'cases/coffee/' },
+  { id:'salon', url:'cases/salon/' },
+  { id:'restaurant', url:'cases/restaurant/' },
+  { id:'dental', url:'cases/dental/' }
 ];
 
 // calculator: base types and extras, prices per language
@@ -646,6 +672,8 @@ const T = {
     'f.wa':'Отправить в WhatsApp','f.mail':'Отправить на почту',
     'f.types':['Лендинг','Сайт для бизнеса','Интернет-магазин','Редизайн сайта','Пока не знаю'],
     'f.hello':'Здравствуйте! Заявка с сайта Predstav Studio','f.l.name':'Имя','f.l.contact':'Контакт','f.l.type':'Нужно','f.l.msg':'Комментарий',
+    'nav.blog':'Блог','j.title':'Из <em>блога</em>','j.all':'Все статьи','j.tag':'Статья',
+    'j.1':'Сколько стоит сайт для бизнеса в 2026 году','j.2':'Лендинг или многостраничный сайт: что выбрать','j.3':'7 ошибок, из-за которых сайт не приносит заявки',
     'cur.view':'Открыть','spin':'Обсудить проект • Predstav Studio • ','copied':'Скопировано',
     'st.on':'Сейчас на связи — ответим в течение часа','st.off':'В Москве ночь — ответим утром',
     'foot':'Сайты для бизнеса под ключ'
@@ -699,6 +727,8 @@ const T = {
     'f.wa':'Send via WhatsApp','f.mail':'Send by email',
     'f.types':['Landing page','Business website','Online store','Website redesign','Not sure yet'],
     'f.hello':'Hi! New request from the Predstav Studio website','f.l.name':'Name','f.l.contact':'Contact','f.l.type':'Need','f.l.msg':'Message',
+    'nav.blog':'Blog','j.title':'From the <em>blog</em>','j.all':'All articles','j.tag':'Article',
+    'j.1':'How much does a small business website cost in 2026','j.2':'Landing page or multi-page website: which to choose','j.3':'7 mistakes that stop your website from getting leads',
     'cur.view':'View','spin':'Start a project • Predstav Studio • ','copied':'Copied',
     'st.on':'Online now — we reply within an hour','st.off':'It\'s night in Moscow — we\'ll reply in the morning',
     'foot':'Websites for small businesses'
