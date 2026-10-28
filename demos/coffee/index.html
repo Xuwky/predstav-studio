@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember &amp; Oak Coffee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fbf5ec;--brown:#3b2414;--mid:#7a4a2a;--gold:#c58b52;--text:#2a1b10}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.demo{background:#111;color:#bbb;font-size:13px;text-align:center;padding:8px}
+.demo a{color:#ffb347}
+.wrap{max-width:1050px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-family:Fraunces,serif;font-weight:800;font-size:22px;color:var(--brown)}
+.links{display:flex;gap:22px;font-weight:600;font-size:15px}
+.btn{display:inline-block;background:var(--brown);color:var(--cream);padding:13px 26px;border-radius:99px;font-weight:600}
+.btn.light{background:var(--cream);color:var(--brown)}
+.hero{background:linear-gradient(160deg,var(--brown),var(--mid) 60%,var(--gold));color:var(--cream);border-radius:28px;padding:80px 50px;margin:10px 0 70px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;border:40px solid rgba(255,255,255,.08)}
+.hero h1{font-family:Fraunces,serif;font-size:clamp(40px,6vw,68px);line-height:1.05;max-width:600px;margin-bottom:18px}
+.hero p{max-width:460px;font-size:18px;opacity:.9;margin-bottom:30px}
+h2{font-family:Fraunces,serif;font-size:38px;color:var(--brown);margin-bottom:28px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px 50px;margin-bottom:70px}
+.item{display:flex;justify-content:space-between;border-bottom:1px dashed #d8c4ab;padding:12px 0}
+.item b{font-weight:600}
+.item small{display:block;color:#8a6e55}
+.item span{font-weight:600;color:var(--mid)}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:70px}
+.box{background:#fff;border-radius:20px;padding:28px;box-shadow:0 6px 24px rgba(59,36,20,.08)}
+.box h3{font-family:Fraunces,serif;font-size:22px;margin-bottom:10px;color:var(--brown)}
+.box p{color:#6b5442}
+.quote{text-align:center;padding:60px 20px;margin-bottom:60px}
+.quote p{font-family:Fraunces,serif;font-size:clamp(22px,3vw,30px);color:var(--brown);max-width:700px;margin:0 auto 10px}
+.quote small{color:#8a6e55}
+footer{background:var(--brown);color:#d8c4ab;text-align:center;padding:30px 20px;font-size:14px}
+@media(max-width:640px){.links{display:none}.hero{padding:50px 26px}}
+</style>
+</head>
+<body>
+<div class="demo">Demo website made by <a href="../../">Predstav Studio</a></div>
+<div class="wrap">
+  <nav>
+    <div class="logo">Ember &amp; Oak</div>
+    <div class="links"><a href="#menu">Menu</a><a href="#visit">Visit</a></div>
+    <a class="btn" href="#visit">Order ahead</a>
+  </nav>
+
+  <div class="hero">
+    <h1>Slow-roasted coffee, made by neighbors.</h1>
+    <p>Small-batch beans roasted every Monday. Fresh pastries from our oven every morning at 6.</p>
+    <a class="btn light" href="#menu">See the menu</a>
+  </div>
+
+  <h2 id="menu">Menu</h2>
+  <div class="menu">
+    <div class="item"><div><b>Espresso</b><small>Double shot, house blend</small></div><span>$3.25</span></div>
+    <div class="item"><div><b>Oat Latte</b><small>Oat milk, honey optional</small></div><span>$5.50</span></div>
+    <div class="item"><div><b>Cold Brew</b><small>Steeped 18 hours</small></div><span>$4.75</span></div>
+    <div class="item"><div><b>Maple Cortado</b><small>Vermont maple syrup</small></div><span>$5.25</span></div>
+    <div class="item"><div><b>Butter Croissant</b><small>Baked this morning</small></div><span>$3.95</span></div>
+    <div class="item"><div><b>Breakfast Sandwich</b><small>Egg, cheddar, bacon</small></div><span>$8.50</span></div>
+  </div>
+
+  <div class="info" id="visit">
+    <div class="box"><h3>Hours</h3><p>Mon–Fri: 6am – 6pm<br>Sat–Sun: 7am – 4pm</p></div>
+    <div class="box"><h3>Find us</h3><p>Main Street, downtown<br>Free parking behind the shop</p></div>
+    <div class="box"><h3>Order ahead</h3><p>Skip the line: call or order online and pick up in 10 minutes.</p></div>
+  </div>
+
+  <div class="quote">
+    <p>"Best latte in town and the people behind the counter actually remember your name."</p>
+    <small>★★★★★ Google review</small>
+  </div>
+</div>
+<footer>© 2026 Ember &amp; Oak Coffee · Demo by Predstav Studio</footer>
+</body>
+</html>
