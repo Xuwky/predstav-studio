@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osteria Lupa</title>
+<link rel="icon" href="../../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--red:#7d1f1a;--paper:#f7f1e6;--ink:#1d1a17;--olive:#5d6b3a;--muted:#6e665c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.demo{background:#111;color:#bbb;font-size:13px;text-align:center;padding:8px}
+.demo a{color:#d8c08f}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid #e2d8c6}
+.logo{font-family:"Playfair Display",serif;font-style:italic;font-size:28px;color:var(--red)}
+.links{display:flex;gap:28px;font-size:14px;letter-spacing:1px;text-transform:uppercase}
+.btn{display:inline-block;background:var(--red);color:var(--paper);padding:14px 28px;font-weight:500;letter-spacing:1px;font-size:14px;text-transform:uppercase}
+.hero{text-align:center;padding:100px 0 90px}
+.hero small{letter-spacing:4px;text-transform:uppercase;color:var(--olive);font-size:13px}
+.hero h1{font-family:"Playfair Display",serif;font-weight:500;font-size:clamp(48px,8vw,104px);line-height:1;margin:18px 0 24px}
+.hero h1 em{color:var(--red)}
+.hero p{color:var(--muted);font-size:18px;max-width:520px;margin:0 auto 34px}
+.stripe{height:14px;background:repeating-linear-gradient(90deg,var(--red) 0 28px,var(--paper) 28px 56px);margin-bottom:80px}
+h2{font-family:"Playfair Display",serif;font-weight:500;font-size:46px;text-align:center;margin-bottom:10px}
+.sub{text-align:center;color:var(--muted);margin-bottom:40px}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:10px 60px;margin-bottom:90px}
+.dish{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px dotted #c9bda8}
+.dish b{font-family:"Playfair Display",serif;font-weight:500;font-size:20px}
+.dish small{display:block;color:var(--muted)}
+.dish span{color:var(--red);font-weight:500}
+.reserve{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:var(--paper);margin-bottom:60px}
+.reserve div{padding:60px 50px}
+.reserve h2{text-align:left;color:var(--paper)}
+.reserve p{opacity:.75;margin-bottom:26px}
+.hours{background:var(--olive)}
+.hours li{list-style:none;display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+footer{text-align:center;color:var(--muted);padding:30px;font-size:14px}
+@media(max-width:780px){.menu,.reserve{grid-template-columns:1fr}.links{display:none}.reserve div{padding:40px 26px}}
+</style>
+</head>
+<body>
+<div class="demo">Demo website made by <a href="../../">Predstav Studio</a></div>
+<div class="wrap">
+  <nav><div class="logo">Osteria Lupa</div><div class="links"><a href="#menu">Menu</a><a href="#reserve">Reserve</a></div><a class="btn" href="#reserve">Book a table</a></nav>
+  <div class="hero">
+    <small>Handmade pasta · Since 2009</small>
+    <h1>Real Italian, <em>slowly</em> made.</h1>
+    <p>Fresh pasta rolled every morning, a wood-fired oven and a wine list from small family vineyards.</p>
+    <a class="btn" href="#reserve">Reserve tonight</a>
+  </div>
+</div>
+<div class="stripe"></div>
+<div class="wrap">
+  <h2 id="menu">Tonight's menu</h2>
+  <p class="sub">Changes with the season</p>
+  <div class="menu">
+    <div class="dish"><div><b>Burrata</b><small>Heirloom tomato, basil oil</small></div><span>$16</span></div>
+    <div class="dish"><div><b>Cacio e Pepe</b><small>Tonnarelli, pecorino, black pepper</small></div><span>$22</span></div>
+    <div class="dish"><div><b>Tagliatelle al Ragù</b><small>Six-hour beef &amp; pork ragù</small></div><span>$26</span></div>
+    <div class="dish"><div><b>Margherita</b><small>Wood-fired, San Marzano, fior di latte</small></div><span>$19</span></div>
+    <div class="dish"><div><b>Branzino</b><small>Whole roasted, lemon, capers</small></div><span>$34</span></div>
+    <div class="dish"><div><b>Tiramisù</b><small>Our nonna's recipe</small></div><span>$11</span></div>
+  </div>
+  <div class="reserve" id="reserve">
+    <div><h2>Reserve a table</h2><p>Groups up to 12. Private room for events and birthdays.</p><a class="btn" href="#reserve">Choose date &amp; time</a></div>
+    <div class="hours"><h2 style="font-size:32px">Hours</h2><ul><li><span>Tue – Thu</span><span>5 – 10pm</span></li><li><span>Fri – Sat</span><span>5 – 11pm</span></li><li><span>Sunday</span><span>12 – 9pm</span></li><li><span>Monday</span><span>Closed</span></li></ul></div>
+  </div>
+</div>
+<footer>© 2026 Osteria Lupa · Demo by Predstav Studio</footer>
+</body>
+</html>
