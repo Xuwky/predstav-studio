@@ -192,6 +192,70 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px
 .nimg.on{opacity:1}
 .nimg img{width:100%;display:block}
 
+/* try-your-site live preview */
+.try{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}
+.try-ctl{display:grid;gap:26px}
+.tf>span{display:block;font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.tf input{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ivory);font-family:var(--serif);font-size:30px;padding:6px 0;outline:none;transition:border-color .4s}
+.tf input:focus{border-color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{background:none;border:1px solid var(--line);color:var(--ivory);border-radius:99px;padding:9px 16px;font:500 14px var(--sans);cursor:pointer;transition:all .3s}
+.chips button.on{background:var(--gold);border-color:var(--gold);color:var(--on-gold)}
+.swatch{display:flex;gap:10px;flex-wrap:wrap}
+.swatch button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);cursor:pointer;position:relative;overflow:hidden;padding:0;transition:transform .3s}
+.swatch button i{position:absolute;inset:0}
+.swatch button i:last-child{left:50%}
+.swatch button.on{transform:scale(1.15);outline:1px solid var(--gold);outline-offset:3px}
+.try-view{border:1px solid var(--line);border-radius:14px 14px 0 0;background:var(--ink3);padding:0 12px;position:sticky;top:100px}
+.tv-bar{display:flex;gap:7px;align-items:center;padding:13px 2px}
+.tv-bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.tv-bar span{margin-left:12px;font-size:12px;color:var(--muted)}
+.tv{--bg:#0e0d0b;--fg:#f3ede2;--ac:#b8975a;--ff:var(--serif);background:var(--bg);color:var(--fg);height:520px;overflow:hidden;border-radius:4px 4px 0 0;transition:background .6s var(--ease),color .6s var(--ease);font-family:var(--sans);position:relative}
+.tv *{transition:color .6s,background .6s,border-color .6s}
+.tv-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 28px}
+.tv-logo{font-family:var(--ff);font-size:22px;font-weight:600;max-width:55%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tv-links{display:flex;gap:16px;font-size:11px;letter-spacing:1px;text-transform:uppercase;opacity:.7}
+.tv-hero{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;padding:30px 28px 24px;align-items:center}
+.tv-hero h3{font-family:var(--ff);font-weight:500;font-size:clamp(28px,3.1vw,46px);line-height:1.05;margin-bottom:14px}
+.tv-hero h3 em{font-style:italic;color:var(--ac)}
+.tv-hero p{font-size:13px;opacity:.75;margin-bottom:20px;line-height:1.6}
+.tv-btn{display:inline-block;background:var(--ac);color:var(--bg);padding:11px 20px;border-radius:99px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.tv-art{aspect-ratio:1;border-radius:50% 50% 12px 12px;background:var(--ac);position:relative;overflow:hidden}
+.tv-art:before{content:"";position:absolute;width:56%;aspect-ratio:1;border-radius:50%;background:var(--bg);opacity:.35;left:22%;top:18%}
+.tv-art:after{content:"";position:absolute;width:90%;height:46%;left:5%;bottom:-6%;border-radius:50% 50% 0 0;background:var(--fg);opacity:.25}
+.tv-svc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:6px 28px}
+.tv-svc div{border:1px solid color-mix(in srgb,var(--fg) 18%,transparent);border-radius:10px;padding:14px;font-size:13px}
+.tv-svc b{display:block;font-family:var(--ff);font-weight:500;font-size:18px;margin-bottom:2px}
+.tv-svc small{color:var(--ac);font-weight:600}
+.tv.pop .tv-hero h3,.tv.pop .tv-logo{animation:pop .6s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* quiz modal */
+.quiz{position:fixed;inset:0;z-index:90;background:rgba(8,7,6,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .5s}
+.quiz.open{opacity:1;pointer-events:auto}
+.qz{width:min(640px,100%);max-height:92vh;overflow:auto;background:var(--ink2);border:1px solid rgba(184,151,90,.4);padding:48px 44px 40px;position:relative;transform:translateY(30px) scale(.97);transition:transform .6s var(--ease)}
+.quiz.open .qz{transform:none}
+.qz-x{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--ivory);font-size:22px;cursor:pointer}
+.qz-bar{height:1px;background:var(--line);margin-bottom:34px}
+.qz-bar i{display:block;height:100%;background:var(--gold);width:0;transition:width .6s var(--ease)}
+.qz-step{animation:pop .5s var(--ease)}
+.qz small{font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+.qz h3{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.1;margin:10px 0 26px}
+.qz-opts{display:grid;gap:10px}
+.qz-opts button{text-align:left;background:none;border:1px solid var(--line);color:var(--ivory);padding:18px 22px;font:400 16px var(--sans);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .3s,background .3s,padding .4s var(--ease)}
+.qz-opts button:hover{border-color:var(--gold);background:var(--ink3);padding-left:30px}
+.qz-opts button:after{content:"→";color:var(--gold)}
+.qz-res{border:1px solid var(--line);padding:26px;margin-bottom:22px}
+.qz-res b{display:block;font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.1}
+.qz-res .pr{font-family:var(--serif);font-size:48px;color:var(--gold);line-height:1.1;margin:10px 0 4px}
+.qz-res p{color:var(--muted);font-size:15px}
+.qz form{display:grid;gap:12px}
+.qz input{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ivory);font:inherit;font-size:17px;padding:10px 0;outline:none}
+.qz input:focus{border-color:var(--gold)}
+.qz .btn{margin-top:10px}
+.qz-back{background:none;border:0;color:var(--muted);font:500 13px var(--sans);letter-spacing:2px;text-transform:uppercase;cursor:pointer;margin-top:22px}
+@media(max-width:900px){.try{grid-template-columns:1fr}.try-view{position:static}.tv{height:460px}.tv-hero{grid-template-columns:1fr}.tv-art{display:none}.tv-svc{grid-template-columns:1fr 1fr 1fr}.tv-links{display:none}.qz{padding:44px 22px 30px}}
+
 /* big footer */
 .bigfoot{border-top:1px solid var(--line);padding:90px 0 30px;overflow:hidden}
 .ftop{display:grid;grid-template-columns:repeat(3,1fr) 170px;gap:40px;align-items:start;margin-bottom:60px}
@@ -533,7 +597,7 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
       <p class="rv" data-i18n="hero.lead"></p>
       <div class="hero-cta rv d1">
         <a class="btn solid magnet" href="#contact" data-i18n="hero.cta"></a>
-        <a class="btn" href="#work" data-i18n="hero.cta2"></a>
+        <button class="btn" type="button" data-quiz data-i18n="hero.cta2"></button>
       </div>
     </div>
   </div>
@@ -583,6 +647,28 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
     <div class="nlist" id="nlist"></div>
   </div>
   <div class="nimg" id="nimg"><img alt=""></div>
+</section>
+
+<section id="try" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div class="rv"><span class="num">✦</span><h2 data-i18n="try.title"></h2></div>
+      <p class="rv d1" data-i18n="try.sub"></p>
+    </div>
+    <div class="try rv">
+      <div class="try-ctl">
+        <label class="tf"><span data-i18n="try.name"></span><input id="tName" maxlength="28" autocomplete="off"></label>
+        <div class="tf"><span data-i18n="try.niche"></span><div class="chips" id="tNiche"></div></div>
+        <div class="tf"><span data-i18n="try.color"></span><div class="swatch" id="tColor"></div></div>
+        <div class="tf"><span data-i18n="try.font"></span><div class="chips" id="tFont"></div></div>
+        <button class="btn solid" type="button" id="tSend" data-i18n="try.send"></button>
+      </div>
+      <div class="try-view">
+        <div class="tv-bar"><i></i><i></i><i></i><span id="tUrl"></span></div>
+        <div class="tv" id="tv"></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="before" style="padding-top:0">
@@ -746,6 +832,14 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
   </div>
 </section>
 
+<div class="quiz" id="quiz" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="qz">
+    <button class="qz-x" type="button" data-close aria-label="Close">×</button>
+    <div class="qz-bar"><i id="qzBar"></i></div>
+    <div class="qz-body" id="qzBody"></div>
+  </div>
+</div>
+
 <div class="float">
   <a class="fl" data-c="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ic ic-wa"></i></a>
   <a class="fl" data-c="tg" target="_blank" rel="noopener" aria-label="Telegram"><i class="ic ic-tg"></i></a>
@@ -849,7 +943,9 @@ const T = {
     'f.types':['Лендинг','Сайт для бизнеса','Интернет-магазин','Редизайн сайта','Пока не знаю'],
     'f.hello':'Здравствуйте! Заявка с сайта Predstav Studio','f.l.name':'Имя','f.l.contact':'Контакт','f.l.type':'Нужно','f.l.msg':'Комментарий',
     'skip':'Перейти к работам',
-    'hero.cta2':'Смотреть работы','hero.tag':'живых сайтов в портфолио',
+    'hero.cta2':'Подобрать сайт за минуту',
+    'try.title':'Примерьте <em>свой</em> сайт','try.sub':'Введите название, выберите нишу, цвета и шрифт — и посмотрите, как может выглядеть ваш сайт.',
+    'try.name':'Название бизнеса','try.niche':'Ниша','try.color':'Цвета','try.font':'Шрифт','try.send':'Хочу такой сайт','hero.tag':'живых сайтов в портфолио',
     'man':'Мы делаем сайты, которые выглядят <em>дорого</em>, открываются за секунду и превращают случайных посетителей в <em>клиентов</em> — а не просто висят в интернете.',
     'work.hint':'Листайте вниз →',
     'n.title':'Для кого мы <em>делаем</em>','n.sub':'Знаем, что важно клиентам в каждой нише. Наведите на строку — покажем пример.',
@@ -916,7 +1012,9 @@ const T = {
     'f.types':['Landing page','Business website','Online store','Website redesign','Not sure yet'],
     'f.hello':'Hi! New request from the Predstav Studio website','f.l.name':'Name','f.l.contact':'Contact','f.l.type':'Need','f.l.msg':'Message',
     'skip':'Skip to work',
-    'hero.cta2':'See our work','hero.tag':'live websites in the portfolio',
+    'hero.cta2':'Find my site in 1 minute',
+    'try.title':'Try on <em>your</em> website','try.sub':'Type your business name, pick an industry, colors and font — and see what your site could look like.',
+    'try.name':'Business name','try.niche':'Industry','try.color':'Colors','try.font':'Font','try.send':'I want this website','hero.tag':'live websites in the portfolio',
     'man':'We build websites that look <em>expensive</em>, load in a second and turn casual visitors into <em>customers</em> — instead of just sitting on the internet.',
     'work.hint':'Keep scrolling →',
     'n.title':'Who we <em>build</em> for','n.sub':'We know what customers care about in each industry. Hover a row to see an example.',
@@ -1016,6 +1114,7 @@ function apply(){
   $$('h2[data-i18n]').forEach(splitWords);
   splitManifesto();
   renderNiches();
+  document.dispatchEvent(new Event('langchange'));
   $('#spinText').textContent = d['spin'];
   updateStatus();
 }
@@ -1267,6 +1366,134 @@ if (matchMedia('(pointer:fine)').matches && !reduced) {
     el.addEventListener('mouseleave', () => { el.style.transition = ''; el.style.transform = ''; });
   });
 }
+
+// "try your site": live mockup built from the visitor's business name, niche, colors and font
+const PALETTES = [['#0e0d0b','#f3ede2','#b8975a'],['#0f2742','#ffffff','#f2a541'],['#f6e9e4','#4a2c35','#c98b86'],['#f7f1e6','#1d1a17','#7d1f1a'],['#e3f3f0','#13302e','#0f6e6a'],['#ffffff','#111111','#111111']];
+const FONTS = [['serif', 'var(--serif)'], ['sans', 'var(--sans)']];
+const TRY = {
+  ru: {
+    def:'Ваш бизнес', links:['Услуги','Цены','Контакты'], fonts:['С засечками','Современный'],
+    niches: {
+      construction:['Строительство','Ремонт и стройка <em>без сюрпризов</em>','Фиксированная смета, сроки в договоре и гарантия 5 лет.','Бесплатный замер',[['Кровля','от 90 000 ₽'],['Фасады','от 120 000 ₽'],['Отделка','от 4 000 ₽/м²']]],
+      beauty:['Красота','Ваш <em>спокойный</em> час красоты','Стрижки, маникюр и уход в тихой студии. Запись за 30 секунд.','Записаться',[['Стрижка','от 1 500 ₽'],['Маникюр','от 1 800 ₽'],['Уход','от 2 500 ₽']]],
+      restaurants:['Ресторан','Кухня, ради которой <em>возвращаются</em>','Сезонное меню, живой огонь и вина небольших виноделен.','Забронировать стол',[['Завтраки','с 9:00'],['Ужин','до 23:00'],['Банкеты','до 40 гостей']]],
+      coffee:['Кофейня','Кофе, который <em>будит</em> город','Своя обжарка каждый понедельник и выпечка из печи с 7 утра.','Заказать заранее',[['Эспрессо','от 180 ₽'],['Раф','от 290 ₽'],['Круассан','от 210 ₽']]],
+      clinics:['Клиника','Забота <em>без очередей</em>','Приём в день обращения, вечерние часы и честные цены.','Записаться к врачу',[['Приём','от 2 000 ₽'],['Диагностика','от 1 500 ₽'],['Анализы','от 400 ₽']]]
+    },
+    msg:(n, niche, pal, font) => `Здравствуйте! Примерил сайт на Predstav Studio:\n\n• Название: ${n}\n• Ниша: ${niche}\n• Цвета: палитра ${pal}\n• Шрифт: ${font}\n\nХочу такой сайт.`
+  },
+  en: {
+    def:'Your business', links:['Services','Pricing','Contact'], fonts:['Serif','Modern'],
+    niches: {
+      construction:['Contractor','Repairs and builds <em>without surprises</em>','Fixed quotes, deadlines in the contract and a 5-year warranty.','Free estimate',[['Roofing','from $4,900'],['Siding','from $6,500'],['Interiors','from $45/ft²']]],
+      beauty:['Beauty','Your <em>calm</em> hour of beauty','Hair, nails and skin care in a quiet studio. Book in 30 seconds.','Book now',[['Haircut','from $65'],['Manicure','from $45'],['Facial','from $95']]],
+      restaurants:['Restaurant','Food worth <em>coming back</em> for','A seasonal menu, live fire and wines from small family vineyards.','Book a table',[['Brunch','from 9am'],['Dinner','until 11pm'],['Events','up to 40 guests']]],
+      coffee:['Coffee shop','Coffee that <em>wakes up</em> the city','Roasted in-house every Monday, pastries from our oven at 7am.','Order ahead',[['Espresso','from $3'],['Latte','from $5'],['Croissant','from $4']]],
+      clinics:['Clinic','Care <em>without the wait</em>','Same-day appointments, evening hours and honest prices.','Book a visit',[['Checkup','from $120'],['Diagnostics','from $90'],['Lab tests','from $25']]]
+    },
+    msg:(n, niche, pal, font) => `Hi! I tried a website mockup on Predstav Studio:\n\n• Name: ${n}\n• Industry: ${niche}\n• Colors: palette ${pal}\n• Font: ${font}\n\nI'd like a site like this.`
+  }
+};
+const tState = { niche:'beauty', pal:0, font:0 };
+const tv = $('#tv'), tName = $('#tName');
+function renderTryControls(){
+  const d = TRY[lang];
+  $('#tNiche').innerHTML = Object.entries(d.niches).map(([k, v]) => `<button type="button" data-k="${k}" class="${k === tState.niche ? 'on' : ''}">${v[0]}</button>`).join('');
+  $('#tColor').innerHTML = PALETTES.map((p, i) => `<button type="button" data-i="${i}" class="${i === tState.pal ? 'on' : ''}" aria-label="Palette ${i + 1}"><i style="background:${p[0]}"></i><i style="background:${p[2]}"></i></button>`).join('');
+  $('#tFont').innerHTML = d.fonts.map((f, i) => `<button type="button" data-i="${i}" class="${i === tState.font ? 'on' : ''}">${f}</button>`).join('');
+  tName.placeholder = d.def;
+  renderTry(false);
+}
+function renderTry(pop = true){
+  const d = TRY[lang], n = d.niches[tState.niche], p = PALETTES[tState.pal];
+  const name = tName.value.trim() || d.def;
+  tv.style.setProperty('--bg', p[0]); tv.style.setProperty('--fg', p[1]); tv.style.setProperty('--ac', p[2]);
+  tv.style.setProperty('--ff', FONTS[tState.font][1]);
+  tv.innerHTML = `
+    <div class="tv-nav"><div class="tv-logo"></div><div class="tv-links">${d.links.map(l => '<span>' + l + '</span>').join('')}</div></div>
+    <div class="tv-hero"><div><h3>${n[1]}</h3><p>${n[2]}</p><span class="tv-btn">${n[3]}</span></div><div class="tv-art"></div></div>
+    <div class="tv-svc">${n[4].map(s => `<div><b>${s[0]}</b><small>${s[1]}</small></div>`).join('')}</div>`;
+  tv.querySelector('.tv-logo').textContent = name;
+  $('#tUrl').textContent = (name.toLowerCase().replace(/[^a-zа-яё0-9]+/gi, '') || 'yourbusiness') + (lang === 'ru' ? '.ru' : '.com');
+  if (pop) { tv.classList.remove('pop'); void tv.offsetWidth; tv.classList.add('pop'); }
+}
+$('#tNiche').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; tState.niche = b.dataset.k; renderTryControls(); renderTry(); });
+$('#tColor').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; tState.pal = +b.dataset.i; renderTryControls(); });
+$('#tFont').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; tState.font = +b.dataset.i; renderTryControls(); renderTry(); });
+tName.addEventListener('input', () => renderTry(false));
+$('#tSend').addEventListener('click', () => {
+  const d = TRY[lang];
+  const text = d.msg(tName.value.trim() || d.def, d.niches[tState.niche][0], tState.pal + 1, d.fonts[tState.font]);
+  window.open('https://wa.me/' + digits(CONTACTS.wa) + '?text=' + encodeURIComponent(text), '_blank');
+});
+if (!CONTACTS.wa) $('#tSend').classList.add('off');
+renderTryControls();
+
+// quiz: 4 questions -> recommended package -> request via WhatsApp
+const QUIZ = {
+  ru: {
+    step:'Вопрос', of:'из', back:'← Назад', send:'Получить расчёт в WhatsApp', name:'Ваше имя', phone:'Телефон или Telegram',
+    qs:[
+      ['Чем занимается ваш бизнес?', ['Строительство и ремонт','Красота и уход','Еда и напитки','Медицина','Другое']],
+      ['Есть ли у вас сайт сейчас?', ['Нет, будет первый','Есть, но устарел','Есть, нужен ещё один']],
+      ['Что сайт должен делать в первую очередь?', ['Приводить заявки и звонки','Принимать онлайн-запись','Продавать товары онлайн','Показывать уровень компании']],
+      ['Когда нужен сайт?', ['Как можно скорее','В течение месяца','Пока просто узнаю']]
+    ],
+    res:'Вам подойдёт', why:{ landing:'Одна страница, которая ведёт к заявке. Быстро запускается и сразу показывает спрос.', business:'Несколько страниц с услугами, ценами и онлайн-записью — для бизнеса, где клиент выбирает.', store:'Каталог, корзина и оплата — чтобы продавать без звонков.' },
+    names:{ landing:'Лендинг', business:'Сайт бизнеса', store:'Интернет-магазин' }, days:n => 'Запуск за ' + n + ' ' + (n < 5 ? 'дня' : 'дней'),
+    urgent:' Срочный запуск возможен — обсудим.', msg:'Здравствуйте! Прошёл квиз на сайте Predstav Studio:'
+  },
+  en: {
+    step:'Question', of:'of', back:'← Back', send:'Get my quote via WhatsApp', name:'Your name', phone:'Phone or email',
+    qs:[
+      ['What does your business do?', ['Construction & repairs','Beauty & wellness','Food & drinks','Healthcare','Something else']],
+      ['Do you have a website now?', ['No, this will be the first','Yes, but it\'s outdated','Yes, I need another one']],
+      ['What should the site do first?', ['Bring calls and leads','Take online bookings','Sell products online','Show the company\'s quality']],
+      ['When do you need it?', ['As soon as possible','Within a month','Just exploring']]
+    ],
+    res:'We recommend', why:{ landing:'One page that leads to a request. Launches fast and shows demand right away.', business:'Several pages with services, prices and online booking — for businesses where clients compare.', store:'Catalog, cart and payments — sell without phone calls.' },
+    names:{ landing:'Landing page', business:'Business website', store:'Online store' }, days:n => 'Live in ' + n + ' days',
+    urgent:' A rush launch is possible — let\'s discuss.', msg:'Hi! I took the quiz on the Predstav Studio website:'
+  }
+};
+const quiz = $('#quiz'), qzBody = $('#qzBody'), qzBar = $('#qzBar');
+let qa = [];
+function qzRender(){
+  const d = QUIZ[lang], i = qa.length;
+  qzBar.style.width = (i / (d.qs.length + 1) * 100) + '%';
+  if (i < d.qs.length) {
+    const [q, opts] = d.qs[i];
+    qzBody.innerHTML = `<div class="qz-step"><small>${d.step} ${i + 1} ${d.of} ${d.qs.length}</small><h3>${q}</h3>
+      <div class="qz-opts">${opts.map((o, k) => `<button type="button" data-k="${k}">${o}</button>`).join('')}</div>
+      ${i ? `<button class="qz-back" type="button" data-back>${d.back}</button>` : ''}</div>`;
+    return;
+  }
+  qzBar.style.width = '100%';
+  const pkg = qa[2] === 2 ? 'store' : (qa[2] === 1 || qa[0] === 3 || qa[1] === 2) ? 'business' : 'landing';
+  const t = CALC[lang].types.find(x => x[0] === pkg);
+  qzBody.innerHTML = `<div class="qz-step"><small>${d.res}</small>
+    <div class="qz-res" style="margin-top:14px"><b>${d.names[pkg]}</b><div class="pr">${CALC[lang].cur(t[1])}</div><p>${d.days(t[2])}. ${d.why[pkg]}${qa[3] === 0 ? d.urgent : ''}</p></div>
+    <form id="qzForm"><input name="name" required placeholder="${d.name}"><input name="contact" required placeholder="${d.phone}">
+    <button class="btn solid" type="submit">${d.send}</button></form>
+    <button class="qz-back" type="button" data-back>${d.back}</button></div>`;
+  $('#qzForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const lines = [d.msg, ''].concat(d.qs.map((q, k) => '• ' + q[0] + ' — ' + q[1][qa[k]]), ['', '→ ' + d.names[pkg] + ', ' + CALC[lang].cur(t[1]), '', f.get('name') + ', ' + f.get('contact')]);
+    window.open('https://wa.me/' + digits(CONTACTS.wa) + '?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+  });
+}
+function qzOpen(){ qa = []; qzRender(); quiz.classList.add('open'); quiz.setAttribute('aria-hidden', 'false'); if (lenis) lenis.stop(); setTimeout(() => { const b = qzBody.querySelector('button'); if (b) b.focus(); }, 300); }
+function qzClose(){ quiz.classList.remove('open'); quiz.setAttribute('aria-hidden', 'true'); if (lenis) lenis.start(); }
+document.addEventListener('click', e => { if (e.target.closest('[data-quiz]')) qzOpen(); });
+quiz.addEventListener('click', e => {
+  if (e.target === quiz || e.target.closest('[data-close]')) return qzClose();
+  if (e.target.closest('[data-back]')) { qa.pop(); return qzRender(); }
+  const o = e.target.closest('.qz-opts button');
+  if (o) { qa.push(+o.dataset.k); qzRender(); }
+});
+addEventListener('keydown', e => { if (e.key === 'Escape' && quiz.classList.contains('open')) qzClose(); });
+document.addEventListener('langchange', () => { renderTryControls(); if (quiz.classList.contains('open')) qzRender(); });
 
 // scroll-driven scenes: manifesto, horizontal gallery
 const pin = $('#hpin'), track = $('#works'), hbarEl = $('#hbar'), hcur = $('#hcur');
