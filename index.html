@@ -132,10 +132,81 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px
 .swapping [data-i18n]{opacity:0}
 
 /* hero */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px 0 80px;position:relative}
+.hero{min-height:100vh;display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:40px;padding:140px 28px 90px;position:relative}
+.hero-text{position:relative;z-index:2}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .scroll{position:absolute;left:28px;bottom:30px}
+
+/* hero 3D deck of real site previews */
+.stage{position:relative;height:min(78vh,720px);perspective:1800px}
+.deck{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateY(calc(-24deg + var(--mx,0) * 8deg)) rotateX(calc(12deg - var(--my,0) * 6deg)) rotateZ(3deg);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.card{position:absolute;width:58%;aspect-ratio:10/12.5;background:var(--ink3);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 40px 80px -20px rgba(0,0,0,.6);
+  opacity:0;transform:translate3d(var(--x),calc(var(--y) + 120px),var(--z));transition:opacity 1.2s var(--ease),transform 1.6s var(--ease)}
+.loaded .card{opacity:1;transform:translate3d(var(--x),var(--y),var(--z))}
+.card .cbar{display:flex;gap:6px;padding:10px 12px;background:var(--ink3)}
+.card .cbar i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.card .cscr{position:absolute;top:28px;left:0;right:0;bottom:0;overflow:hidden;background:#fff}
+.card img{width:100%;display:block;animation:cardpan 16s cubic-bezier(.45,0,.55,1) infinite alternate}
+@keyframes cardpan{0%,12%{transform:translateY(0)}88%,100%{transform:translateY(-62%)}}
+.k1{--x:30%;--y:2%;--z:120px;transition-delay:.5s;z-index:5}
+.k2{--x:2%;--y:16%;--z:40px;transition-delay:.6s}
+.k3{--x:52%;--y:26%;--z:-30px;transition-delay:.7s}
+.k4{--x:14%;--y:44%;--z:-90px;transition-delay:.8s}
+.k5{--x:44%;--y:-10%;--z:-160px;transition-delay:.9s}
+.k2 img{animation-delay:-4s}.k3 img{animation-delay:-8s}.k4 img{animation-delay:-11s}.k5 img{animation-delay:-6s}
+.stage-tag{position:absolute;left:0;bottom:4%;display:flex;align-items:center;gap:14px;font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);z-index:6}
+.stage-tag b{font-family:var(--serif);font-style:italic;font-size:44px;font-weight:500;color:var(--gold);letter-spacing:0;line-height:1}
+
+/* manifesto: words light up while scrolling */
+.manifesto{padding:150px 0 120px}
+.manifesto .num{margin-bottom:30px}
+.mf{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5.2vw,78px);line-height:1.12;letter-spacing:-.5px;max-width:1100px}
+.mf .mw{opacity:.14;transition:opacity .25s linear}
+.mf em{font-style:italic;color:var(--gold)}
+
+/* horizontal works gallery */
+.hwork{padding-bottom:0}
+.hwork .head{margin-bottom:40px}
+.hpin{position:relative}
+.hsticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:34px}
+.htrack{display:flex;gap:4vw;padding:0 max(28px,calc((100vw - 1240px) / 2 + 28px));will-change:transform;width:max-content}
+.htrack .work{flex:0 0 min(62vw,860px);--sh:calc(100vh - 330px)}
+.hfoot{display:flex;align-items:center;gap:24px;width:100%}
+.hcount{font-family:var(--serif);font-size:22px;color:var(--muted);white-space:nowrap}
+.hcount b{color:var(--gold);font-weight:500}
+.hbar{flex:1;height:1px;background:var(--line);position:relative;overflow:hidden}
+.hbar i{position:absolute;inset:0;background:var(--gold);transform-origin:left;transform:scaleX(0)}
+.hhint{font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+
+/* niches with floating image */
+.nlist{border-top:1px solid var(--line)}
+.nrow{display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:30px;padding:34px 0;border-bottom:1px solid var(--line);position:relative;transition:padding .6s var(--ease)}
+.nrow:before{content:"";position:absolute;inset:0;background:var(--ink2);transform:scaleY(0);transform-origin:bottom;transition:transform .6s var(--ease);z-index:-1}
+.nrow:hover{padding-left:24px}
+.nrow:hover:before{transform:none}
+.nrow .ni{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:20px}
+.nrow h3{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,68px);line-height:1;transition:color .4s}
+.nrow:hover h3{color:var(--gold)}
+.nrow p{color:var(--muted);font-size:15px;text-align:right;max-width:300px}
+.nimg{position:fixed;left:0;top:0;width:340px;height:240px;pointer-events:none;z-index:40;border-radius:8px;overflow:hidden;opacity:0;transform:translate(-50%,-50%) scale(.6);transition:opacity .4s,transform .5s var(--ease);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.nimg.on{opacity:1}
+.nimg img{width:100%;display:block}
+
+/* big footer */
+.bigfoot{border-top:1px solid var(--line);padding:90px 0 30px;overflow:hidden}
+.ftop{display:grid;grid-template-columns:repeat(3,1fr) 170px;gap:40px;align-items:start;margin-bottom:60px}
+.fcol{display:flex;flex-direction:column;gap:8px;font-size:16px}
+.fcol small{font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.fcol a{width:max-content;position:relative}
+.fcol a:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.fcol a:hover:after{transform:scaleX(1);transform-origin:left}
+.fcol span{color:var(--muted)}
+.wordmark{font-family:var(--serif);font-weight:500;font-size:clamp(56px,14.6vw,214px);line-height:.85;letter-spacing:-.04em;white-space:nowrap;display:flex;align-items:baseline;gap:.15em;margin:0 0 30px -.04em}
+.wordmark em{color:var(--gold);font-style:italic}
+.fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:24px}
 .eyebrow{font-size:13px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:16px;margin-bottom:34px}
 .eyebrow:before{content:"";width:50px;height:1px;background:var(--gold)}
-h1{font-family:var(--serif);font-weight:500;font-size:clamp(52px,9.5vw,148px);line-height:.95;letter-spacing:-2px}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(48px,5.7vw,100px);line-height:.95;letter-spacing:-2px}
 h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
 h1 .ln>span{display:inline-block;transform:translateY(110%);transition:transform 1.3s var(--ease)}
 .loaded h1 .ln>span{transform:none}
@@ -143,7 +214,8 @@ h1 .ln>span{display:inline-block;transform:translateY(110%);transition:transform
 .loaded h1 .ln:nth-child(3)>span{transition-delay:.24s}
 h1 em{color:var(--gold);font-style:italic}
 .hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:60px;flex-wrap:wrap}
-.hero-foot p{max-width:420px;color:var(--muted);font-size:17px}
+.hero-foot p{max-width:440px;color:var(--muted);font-size:17px}
+.hero .hero-foot{flex-direction:column;align-items:flex-start;gap:30px;margin-top:44px}
 .scroll{font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px}
 .scroll i{display:block;width:1px;height:60px;background:var(--line);position:relative;overflow:hidden}
 .scroll i:after{content:"";position:absolute;left:0;top:-100%;width:1px;height:100%;background:var(--gold);animation:drop 2.2s var(--ease) infinite}
@@ -179,9 +251,7 @@ h2 em{font-style:italic;color:var(--gold)}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
 
 /* works with device previews */
-.works{display:grid;grid-template-columns:1fr 1fr;gap:50px 34px}
 .work{display:block;--sh:320px}
-.work.big{grid-column:1/-1;--sh:480px}
 .device{background:var(--ink3);border:1px solid var(--line);border-radius:14px 14px 0 0;padding:0 12px;transition:border-color .5s}
 .work:hover .device{border-color:rgba(184,151,90,.6)}
 .dbar{display:flex;gap:7px;padding:13px 2px}
@@ -304,8 +374,6 @@ h2 em{font-style:italic;color:var(--gold)}
 .fl .ic:after{background:var(--on-gold)}
 .fl[data-c="wa"]:before{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold);animation:ring 2.4s var(--ease) infinite}
 @keyframes ring{from{transform:scale(1);opacity:.8}to{transform:scale(1.7);opacity:0}}
-footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(--muted)}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 /* editorial grid lines */
 .gridlines{position:fixed;inset:0;pointer-events:none;z-index:-1;display:flex;justify-content:space-between;max-width:1240px;margin:0 auto;padding:0 28px}
@@ -314,7 +382,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .gridlines i:nth-child(2){transition-delay:.1s}.gridlines i:nth-child(3){transition-delay:.2s}.gridlines i:nth-child(4){transition-delay:.3s}.gridlines i:nth-child(5){transition-delay:.4s}
 
 /* rotating badge in hero */
-.spin{position:absolute;right:28px;top:50%;width:170px;height:170px;margin-top:-85px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 1s 1s}
+.spin{position:relative;width:170px;height:170px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 1s 1s}
 .loaded .spin{opacity:1}
 .spin svg{position:absolute;inset:0;width:100%;height:100%;animation:rot 18s linear infinite}
 .spin text{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:4.4px;text-transform:uppercase;fill:var(--ivory)}
@@ -374,7 +442,22 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
   .totop{left:16px;bottom:16px;width:50px;height:50px}
   .burger{display:block}
   .works,.prices,.steps,.calc,.cgrid{grid-template-columns:1fr}
-  .work,.work.big{--sh:300px}
+  .hero{grid-template-columns:1fr;padding:120px 16px 60px;min-height:0;gap:10px}
+  .hero .scroll{display:none}
+  .stage{height:420px;margin:10px -16px 0;overflow:hidden}
+  .deck{transform:rotateY(-18deg) rotateX(10deg) rotateZ(3deg) scale(.95)}
+  .stage-tag{left:16px}
+  .hpin{height:auto!important}
+  .hsticky{position:static;height:auto;overflow:visible;display:block}
+  .htrack{flex-direction:column;width:auto;gap:50px;padding:0 16px;transform:none!important}
+  .htrack .work{flex:none;--sh:300px}
+  .hfoot{display:none}
+  .nrow{grid-template-columns:44px 1fr;gap:16px;padding:26px 0}
+  .nrow p{grid-column:2;text-align:left}
+  .nimg{display:none}
+  .ftop{grid-template-columns:1fr 1fr;gap:34px}
+  .ftop .spin{display:none}
+  .manifesto{padding:100px 0 80px}
   .ctypes{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr}
   .stat+.stat{border-left:0;border-top:1px solid var(--line)}
@@ -390,7 +473,8 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
   .burger i{left:12px;right:12px}.burger i:first-child{top:16px}.burger i:last-child{top:23px}
   .menu-open .burger i:first-child,.menu-open .burger i:last-child{top:19px}
 }
-@media(max-width:600px){.wrap{padding:0 16px}.price{padding:38px 26px}.total{padding:30px 24px}.lang button{padding:6px 10px}}
+@media(max-width:900px){.hero.wrap{padding:118px 16px 40px}.stage-tag{display:none}}
+@media(max-width:600px){.wrap{padding:0 16px}.hero.wrap{padding:110px 16px 30px}.price{padding:38px 26px}.total{padding:30px 24px}.lang button{padding:6px 10px}}
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none}h1 .ln>span{transform:none}.loader{display:none}
@@ -438,39 +522,73 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
 </div>
 
 <header class="hero wrap" id="top">
-  <div class="eyebrow" data-i18n="hero.eyebrow"></div>
-  <h1>
-    <span class="ln"><span data-i18n="hero.l1"></span></span>
-    <span class="ln"><span data-i18n="hero.l2"></span></span>
-    <span class="ln"><span data-i18n="hero.l3"></span></span>
-  </h1>
-  <div class="hero-foot">
-    <p class="rv" data-i18n="hero.lead"></p>
-    <a class="btn solid magnet rv d1" href="#contact" data-i18n="hero.cta"></a>
-    <div class="scroll"><i></i><span data-i18n="hero.scroll"></span></div>
+  <div class="hero-text">
+    <div class="eyebrow" data-i18n="hero.eyebrow"></div>
+    <h1>
+      <span class="ln"><span data-i18n="hero.l1"></span></span>
+      <span class="ln"><span data-i18n="hero.l2"></span></span>
+      <span class="ln"><span data-i18n="hero.l3"></span></span>
+    </h1>
+    <div class="hero-foot">
+      <p class="rv" data-i18n="hero.lead"></p>
+      <div class="hero-cta rv d1">
+        <a class="btn solid magnet" href="#contact" data-i18n="hero.cta"></a>
+        <a class="btn" href="#work" data-i18n="hero.cta2"></a>
+      </div>
+    </div>
   </div>
-  <a class="spin" href="#contact" aria-label="Contact">
-    <svg viewBox="0 0 170 170"><defs><path id="circ" d="M85,85 m-68,0 a68,68 0 1,1 136,0 a68,68 0 1,1 -136,0"/></defs><text><textPath href="#circ" id="spinText" textLength="418" lengthAdjust="spacing"></textPath></text></svg>
-    <b>↗</b>
-  </a>
+  <div class="stage" aria-hidden="true">
+    <div class="deck" id="deck">
+      <div class="card k1"><div class="cbar"><i></i><i></i><i></i></div><div class="cscr"><img src="assets/work-roofing.jpg" alt=""></div></div>
+      <div class="card k2"><div class="cbar"><i></i><i></i><i></i></div><div class="cscr"><img src="assets/work-salon.jpg" alt=""></div></div>
+      <div class="card k3"><div class="cbar"><i></i><i></i><i></i></div><div class="cscr"><img src="assets/work-restaurant.jpg" alt=""></div></div>
+      <div class="card k4"><div class="cbar"><i></i><i></i><i></i></div><div class="cscr"><img src="assets/work-coffee.jpg" alt=""></div></div>
+      <div class="card k5"><div class="cbar"><i></i><i></i><i></i></div><div class="cscr"><img src="assets/work-dental.jpg" alt=""></div></div>
+    </div>
+    <div class="stage-tag"><span data-i18n="hero.tag"></span><b>05</b></div>
+  </div>
+  <div class="scroll"><i></i><span data-i18n="hero.scroll"></span></div>
 </header>
 
 <div class="marquee"><div id="mq"></div></div>
 
-<section id="work">
+<section class="manifesto">
+  <div class="wrap">
+    <span class="num rv">✦</span>
+    <p class="mf" id="mf" data-i18n="man"></p>
+  </div>
+</section>
+
+<section id="work" class="hwork">
   <div class="wrap">
     <div class="head">
       <div class="rv"><span class="num">01</span><h2 data-i18n="work.title"></h2></div>
       <p class="rv d1" data-i18n="work.sub"></p>
     </div>
-    <div class="works" id="works"></div>
   </div>
+  <div class="hpin" id="hpin">
+    <div class="hsticky">
+      <div class="htrack" id="works"></div>
+      <div class="hfoot wrap"><span class="hcount"><b id="hcur">01</b> / 05</span><span class="hbar"><i id="hbar"></i></span><span class="hhint" data-i18n="work.hint"></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="niches">
+  <div class="wrap">
+    <div class="head">
+      <div class="rv"><span class="num">02</span><h2 data-i18n="n.title"></h2></div>
+      <p class="rv d1" data-i18n="n.sub"></p>
+    </div>
+    <div class="nlist" id="nlist"></div>
+  </div>
+  <div class="nimg" id="nimg"><img alt=""></div>
 </section>
 
 <section id="before" style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <div class="rv"><span class="num">02</span><h2 data-i18n="ba.title"></h2></div>
+      <div class="rv"><span class="num">03</span><h2 data-i18n="ba.title"></h2></div>
       <p class="rv d1" data-i18n="ba.sub"></p>
     </div>
     <div class="ba rv" id="ba" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Before / After">
@@ -510,7 +628,7 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
 <section id="pricing">
   <div class="wrap">
     <div class="head">
-      <div class="rv"><span class="num">03</span><h2 data-i18n="price.title"></h2></div>
+      <div class="rv"><span class="num">04</span><h2 data-i18n="price.title"></h2></div>
       <p class="rv d1" data-i18n="price.sub"></p>
     </div>
     <div class="prices">
@@ -543,7 +661,7 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
 <section id="calc" style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <div class="rv"><span class="num">04</span><h2 data-i18n="calc.title"></h2></div>
+      <div class="rv"><span class="num">05</span><h2 data-i18n="calc.title"></h2></div>
       <p class="rv d1" data-i18n="calc.sub"></p>
     </div>
     <div class="calc">
@@ -567,7 +685,7 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
 <section id="process" style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <div class="rv"><span class="num">05</span><h2 data-i18n="proc.title"></h2></div>
+      <div class="rv"><span class="num">06</span><h2 data-i18n="proc.title"></h2></div>
       <p class="rv d1" data-i18n="proc.sub"></p>
     </div>
     <div class="steps">
@@ -581,7 +699,7 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
 <section id="journal" style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <div class="rv"><span class="num">06</span><h2 data-i18n="j.title"></h2></div>
+      <div class="rv"><span class="num">07</span><h2 data-i18n="j.title"></h2></div>
       <a class="btn rv d1" href="blog/" data-i18n="j.all"></a>
     </div>
     <div class="journal">
@@ -595,7 +713,7 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
 <section id="faq" style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <div class="rv"><span class="num">07</span><h2 data-i18n="faq.title"></h2></div>
+      <div class="rv"><span class="num">08</span><h2 data-i18n="faq.title"></h2></div>
       <p class="rv d1" data-i18n="faq.sub"></p>
     </div>
     <div class="faq rv" id="faqList"></div>
@@ -633,7 +751,21 @@ h2 .w>span{display:inline-block;transform:translateY(105%);transition:transform 
   <a class="fl" data-c="tg" target="_blank" rel="noopener" aria-label="Telegram"><i class="ic ic-tg"></i></a>
 </div>
 
-<footer><div class="wrap"><span>© 2026 Predstav Studio</span><span data-i18n="foot"></span></div></footer>
+<footer class="bigfoot">
+  <div class="wrap">
+    <div class="ftop">
+      <div class="fcol"><small data-i18n="ft.write"></small><a data-c="tg" target="_blank" rel="noopener">Telegram ↗</a><a data-c="wa" target="_blank" rel="noopener">WhatsApp ↗</a><a data-c="email"><span data-v="email"></span></a></div>
+      <div class="fcol"><small data-i18n="ft.nav"></small><a href="#work" data-i18n="nav.work"></a><a href="#pricing" data-i18n="nav.pricing"></a><a href="#calc" data-i18n="nav.calc"></a><a href="blog/" data-i18n="nav.blog"></a></div>
+      <div class="fcol"><small data-i18n="ft.city"></small><span data-i18n="ft.where"></span><span id="ftime"></span></div>
+      <a class="spin" href="#contact" aria-label="Contact">
+        <svg viewBox="0 0 170 170"><defs><path id="circ" d="M85,85 m-68,0 a68,68 0 1,1 136,0 a68,68 0 1,1 -136,0"/></defs><text><textPath href="#circ" id="spinText" textLength="418" lengthAdjust="spacing"></textPath></text></svg>
+        <b>↗</b>
+      </a>
+    </div>
+    <div class="wordmark" aria-hidden="true"><span>Predstav</span><em>Studio</em></div>
+    <div class="fbot"><span>© 2026 Predstav Studio</span><span data-i18n="foot"></span><a href="#top" data-i18n="ft.top"></a></div>
+  </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
@@ -717,6 +849,12 @@ const T = {
     'f.types':['Лендинг','Сайт для бизнеса','Интернет-магазин','Редизайн сайта','Пока не знаю'],
     'f.hello':'Здравствуйте! Заявка с сайта Predstav Studio','f.l.name':'Имя','f.l.contact':'Контакт','f.l.type':'Нужно','f.l.msg':'Комментарий',
     'skip':'Перейти к работам',
+    'hero.cta2':'Смотреть работы','hero.tag':'живых сайтов в портфолио',
+    'man':'Мы делаем сайты, которые выглядят <em>дорого</em>, открываются за секунду и превращают случайных посетителей в <em>клиентов</em> — а не просто висят в интернете.',
+    'work.hint':'Листайте вниз →',
+    'n.title':'Для кого мы <em>делаем</em>','n.sub':'Знаем, что важно клиентам в каждой нише. Наведите на строку — покажем пример.',
+    'n.items':[['Строительство','Заявки на замер прямо с первого экрана','roofing'],['Салоны красоты','Услуги, цены и онлайн-запись','salon'],['Рестораны','Меню и бронь столика за секунды','restaurant'],['Кофейни','Атмосфера, меню и заказ навынос','coffee'],['Клиники','Свободные окна и доверие пациентов','dental']],
+    'ft.write':'Написать','ft.nav':'Навигация','ft.city':'Работаем удалённо','ft.where':'Россия · США · Европа','ft.top':'Наверх ↑',
     'why.title':'Почему <em>мы</em>','why.sub':'Четыре правила, по которым мы работаем с каждым клиентом.',
     'why.1t':'Цена не меняется','why.1d':'Сумму фиксируем в договоре до старта. Никаких «а ещё доплатите за…».',
     'why.2t':'Сайт за 5 дней','why.2d':'Рабочая версия через 2–3 дня, запуск — к концу недели, а не через месяц.',
@@ -778,6 +916,12 @@ const T = {
     'f.types':['Landing page','Business website','Online store','Website redesign','Not sure yet'],
     'f.hello':'Hi! New request from the Predstav Studio website','f.l.name':'Name','f.l.contact':'Contact','f.l.type':'Need','f.l.msg':'Message',
     'skip':'Skip to work',
+    'hero.cta2':'See our work','hero.tag':'live websites in the portfolio',
+    'man':'We build websites that look <em>expensive</em>, load in a second and turn casual visitors into <em>customers</em> — instead of just sitting on the internet.',
+    'work.hint':'Keep scrolling →',
+    'n.title':'Who we <em>build</em> for','n.sub':'We know what customers care about in each industry. Hover a row to see an example.',
+    'n.items':[['Contractors','Estimate requests from the first screen','roofing'],['Beauty salons','Services, prices and online booking','salon'],['Restaurants','Menu and table booking in seconds','restaurant'],['Coffee shops','Atmosphere, menu and order-ahead','coffee'],['Clinics','Open slots and patient trust','dental']],
+    'ft.write':'Get in touch','ft.nav':'Navigation','ft.city':'Working remotely','ft.where':'Russia · USA · Europe','ft.top':'Back to top ↑',
     'why.title':'Why <em>us</em>','why.sub':'Four rules we follow with every client.',
     'why.1t':'Fixed price','why.1d':'The price is set in the contract before we start. No surprise extras.',
     'why.2t':'Live in 5 days','why.2d':'A working preview in 2–3 days and launch by the end of the week, not next month.',
@@ -870,6 +1014,8 @@ function apply(){
   renderCalc();
   renderFaq();
   $$('h2[data-i18n]').forEach(splitWords);
+  splitManifesto();
+  renderNiches();
   $('#spinText').textContent = d['spin'];
   updateStatus();
 }
@@ -892,6 +1038,33 @@ function splitWords(el){
       c.replaceWith(frag);
     });
   })(el);
+}
+
+// manifesto words that light up on scroll
+let mfWords = [];
+function splitManifesto(){
+  const el = $('#mf');
+  (function walk(n){
+    [...n.childNodes].forEach(c => {
+      if (c.nodeType === 1) return walk(c);
+      if (c.nodeType !== 3) return;
+      const frag = document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) return frag.append(part);
+        const s = document.createElement('span'); s.className = 'mw'; s.textContent = part; frag.append(s);
+      });
+      c.replaceWith(frag);
+    });
+  })(el);
+  mfWords = [...el.querySelectorAll('.mw')];
+}
+
+// niches list with a preview that follows the cursor
+function renderNiches(){
+  $('#nlist').innerHTML = T[lang]['n.items'].map(([name, desc, id], i) => `
+    <a class="nrow rv" href="cases/${id}/" data-img="assets/work-${id}.jpg"><span class="ni">0${i + 1}</span><h3>${name}</h3><p>${desc}</p></a>`).join('');
+  $$('#nlist .rv').forEach(el => { el.classList.add('in'); });
 }
 
 // "online now" by Moscow time
@@ -1093,6 +1266,62 @@ if (matchMedia('(pointer:fine)').matches && !reduced) {
     el.addEventListener('mouseleave', () => { el.style.transition = ''; el.style.transform = ''; });
   });
 }
+
+// scroll-driven scenes: manifesto, horizontal gallery
+const pin = $('#hpin'), track = $('#works'), hbarEl = $('#hbar'), hcur = $('#hcur');
+let hDist = 0;
+const isDesk = () => innerWidth > 900;
+function layoutH(){
+  if (!isDesk()) { pin.style.height = ''; track.style.transform = ''; hDist = 0; return; }
+  hDist = Math.max(0, track.scrollWidth - innerWidth);
+  pin.style.height = (hDist + innerHeight) + 'px';
+}
+function scenes(){
+  if (mfWords.length) {
+    const r = $('#mf').getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (innerHeight * .85 - r.top) / (r.height + innerHeight * .35)));
+    const lit = p * mfWords.length;
+    mfWords.forEach((w, i) => { w.style.opacity = Math.max(.14, Math.min(1, lit - i + 1)); });
+  }
+  if (hDist) {
+    const r = pin.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, -r.top / (pin.offsetHeight - innerHeight)));
+    track.style.transform = `translate3d(${-p * hDist}px,0,0)`;
+    hbarEl.style.transform = `scaleX(${p})`;
+    hcur.textContent = '0' + (Math.round(p * (WORKS.length - 1)) + 1);
+  }
+}
+addEventListener('scroll', scenes, { passive:true });
+addEventListener('resize', () => { layoutH(); scenes(); });
+addEventListener('load', () => { layoutH(); scenes(); });
+layoutH(); scenes();
+if (reduced) mfWords.forEach(w => { w.style.opacity = 1; });
+
+// hero deck follows the mouse
+if (matchMedia('(pointer:fine)').matches && !reduced) {
+  const deck = $('#deck');
+  addEventListener('mousemove', e => {
+    deck.style.setProperty('--mx', (e.clientX / innerWidth - .5).toFixed(3));
+    deck.style.setProperty('--my', (e.clientY / innerHeight - .5).toFixed(3));
+  });
+  const nimg = $('#nimg'), nimgImg = nimg.querySelector('img');
+  let nx = 0, ny = 0, tx = 0, ty = 0;
+  addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+  (function follow(){ nx += (tx - nx) * .15; ny += (ty - ny) * .15; nimg.style.left = nx + 'px'; nimg.style.top = ny + 'px'; requestAnimationFrame(follow); })();
+  $('#nlist').addEventListener('mouseover', e => {
+    const row = e.target.closest('.nrow');
+    if (!row) return;
+    nimgImg.src = row.dataset.img;
+    nimg.classList.add('on'); nimg.style.transform = 'translate(-50%,-50%) scale(1) rotate(-4deg)';
+  });
+  $('#nlist').addEventListener('mouseleave', () => { nimg.classList.remove('on'); nimg.style.transform = ''; });
+}
+
+// local time in the footer
+function tick(){
+  $('#ftime').textContent = new Intl.DateTimeFormat(lang === 'ru' ? 'ru-RU' : 'en-US', { timeZone:'Europe/Moscow', hour:'2-digit', minute:'2-digit' }).format(new Date()) + ' MSK';
+}
+tick(); setInterval(tick, 30000);
 
 // Yandex.Metrika
 if (YM_ID) {
